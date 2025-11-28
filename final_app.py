@@ -511,16 +511,10 @@ def format_km(km):
 def show_banner():
     """Display banner image"""
     try:
-        # Thử load từ file local
         st.image("banner.jpg", use_container_width=True)
-    except:
-        try:
-            # Fallback: Load từ GitHub (thay YOUR_USERNAME/YOUR_REPO)
-            url = "https://raw.githubusercontent.com/mayer1226/Project2_final/main/banner.jpg"
-            st.image(url, use_container_width=True)
-        except:
-            # Không có banner - im lặng
-            pass
+    except Exception as e:
+        # Silently fail if banner not found - no error display
+        pass
 
 # ==============================
 # 📄 PAGE FUNCTIONS
@@ -2314,6 +2308,7 @@ else:
 # Footer
 st.markdown("---")
 st.markdown(f"*Hệ thống gợi ý xe máy - Tổng số xe: {len(df):,}*")
+
 
 
 
