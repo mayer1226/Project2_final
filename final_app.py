@@ -513,7 +513,7 @@ def show_banner():
     try:
         # URL raw của file banner trên GitHub
         # Format: https://raw.githubusercontent.com/USERNAME/REPO_NAME/BRANCH/path/to/banner.jpg
-        banner_url = "https://github.com/mayer1226/Project2_final/blob/main/banner.jpg"
+        banner_url = "https://github.com/mayer1226/Project2_final/blob/bc7887280349efeeae5ecb0585fe4485a19ea324/banner.jpg"
         
         st.image(banner_url, use_container_width=True)
     except Exception as e:
@@ -2317,5 +2317,6 @@ else:
 # Footer
 st.markdown("---")
 st.markdown(f"*Hệ thống gợi ý xe máy - Tổng số xe: {len(df):,}*")
+
 
 
