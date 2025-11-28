@@ -510,11 +510,11 @@ def format_km(km):
 
 def show_banner():
     """Display banner image"""
-    banner_path = "banner.jpg"
-    if os.path.exists(banner_path):
-        st.image(banner_path, use_container_width=True)
-    else:
-        st.warning("⚠️ Không tìm thấy file banner.jpg")
+    try:
+        st.image("banner.jpg", use_container_width=True)
+    except Exception as e:
+        # Silently fail - không hiển thị lỗi nếu không có banner
+        pass
 
 # ==============================
 # 📄 PAGE FUNCTIONS
@@ -2308,3 +2308,4 @@ else:
 # Footer
 st.markdown("---")
 st.markdown(f"*Hệ thống gợi ý xe máy - Tổng số xe: {len(df):,}*")
+
