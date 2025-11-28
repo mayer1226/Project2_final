@@ -510,10 +510,21 @@ def format_km(km):
 
 def show_banner():
     """Display banner image"""
+    import os
+    
+    # Try local file first
+    if os.path.exists("banner.jpg"):
+        try:
+            st.image("banner.jpg", use_container_width=True)
+            return
+        except:
+            pass
+    
+    # Try as path from repo root (for Streamlit Cloud)
     try:
-        st.image("banner.jpg", use_container_width=True)
-    except Exception as e:
-        # Silently fail if banner not found - no error display
+        st.image("./banner.jpg", use_container_width=True)
+        return
+    except:
         pass
 
 # ==============================
@@ -2308,6 +2319,7 @@ else:
 # Footer
 st.markdown("---")
 st.markdown(f"*Hệ thống gợi ý xe máy - Tổng số xe: {len(df):,}*")
+
 
 
 
