@@ -509,12 +509,21 @@ def format_km(km):
     return f"{int(km):,} km"
 
 def show_banner():
-    """Display banner image"""
+    """Display banner image from GitHub"""
     try:
-        st.image("banner.jpg", use_container_width=True)
+        # URL raw của file banner trên GitHub
+        # Format: https://raw.githubusercontent.com/USERNAME/REPO_NAME/BRANCH/path/to/banner.jpg
+        banner_url = "https://github.com/mayer1226/Project2_final/blob/main/banner.jpg"
+        
+        st.image(banner_url, use_container_width=True)
     except Exception as e:
-        # Silently fail - không hiển thị lỗi nếu không có banner
-        pass
+        # Fallback: Hiển thị banner HTML nếu không load được ảnh
+        st.markdown("""
+        <div class="main-title">
+            <h1 style='color: white; margin: 0;'>🏍️ HỆ THỐNG MUA BÁN XE MÁY CŨ</h1>
+            <p style='color: white; margin: 10px 0 0 0;'>Tìm kiếm thông minh với Machine Learning</p>
+        </div>
+        """, unsafe_allow_html=True)
 
 # ==============================
 # 📄 PAGE FUNCTIONS
@@ -2308,4 +2317,5 @@ else:
 # Footer
 st.markdown("---")
 st.markdown(f"*Hệ thống gợi ý xe máy - Tổng số xe: {len(df):,}*")
+
 
